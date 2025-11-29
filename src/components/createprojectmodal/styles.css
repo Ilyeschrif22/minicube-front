@@ -122,4 +122,10 @@
     .title {
         font-size: 20px;
     }
+
+    .formContainer {
+        padding: 10px 20px;
+    }
+
+
 }
