@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const CreateProjectModal = ({ isOpen, onClose, onCreate }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -44,7 +46,7 @@ const CreateProjectModal = ({ isOpen, onClose, onCreate }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/projects", {
+      const response = await fetch(`${backendUrl}/api/projects`, {
         method: "POST",
         body: data,
       });

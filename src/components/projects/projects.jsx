@@ -3,12 +3,14 @@ import { ReactComponent as AddIcon } from "../../assets/add-icon.svg";
 import CreateProjectModal from "../createprojectmodal/CreateProjectModal";
 import "./styles.css";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchProjects = () => {
-    fetch("http://localhost:5000/api/projects")
+    fetch(`${backendUrl}/api/projects`)
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error("Error fetching projects:", err));
@@ -70,7 +72,7 @@ const Projects = () => {
                     project.thumbnail && project.thumbnail.startsWith("data:")
                       ? project.thumbnail
                       : project.thumbnail
-                      ? `http://localhost:5000${project.thumbnail}`
+                      ? `${backendUrl}${project.thumbnail}`
                       : "/images/default.webp"
                   }
                   alt="project thumbnail"
