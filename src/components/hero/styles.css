@@ -1,0 +1,107 @@
+/* hero section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 160px 140px 0 140px;
+}
+
+/* image container hero section */
+.classical-marble-statue {
+    height: 400px;
+    width: 400px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-text {
+    font-size: 36px;
+    color: var(--white);
+    display: block;
+    text-align: left;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.sub-hero-text {
+    margin-top: 20px;
+    font-size: 24px;
+    color: var(--white);
+}
+
+/* contact buttons*/
+.contact-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.cv-button {
+    height: 56px;
+    width: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--white);
+    border: 2px solid var(--white);
+    gap: 10px;
+}
+
+.contact-button {
+    height: 56px;
+    width: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--white);
+    border: 2px solid var(--white);
+    gap: 10px;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+
+@media (max-width: 720px) {
+
+    .hero-section {
+        padding: 20px;
+    }
+
+    .hero-text {
+        max-width: 400px;
+    }
+
+    .contact-buttons {
+        gap: 10px;
+    }
+
+    .cv-button {
+        border-radius: 0;
+        width: 145px;
+        font-size: 20px;
+    }
+
+    .contact-button {
+        border-radius: 0;
+        width: 160px;
+        font-size: 20px;
+    }
+
+    .sub-hero-text {
+        max-width: 390px;
+    }
+
+    .classical-marble-statue {
+        display: none;
+    }
+}

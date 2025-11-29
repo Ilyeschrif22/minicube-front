@@ -1,0 +1,184 @@
+.nav-bar {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px 0 40px;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: var(--spacing-default);
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.ham-menu {
+    height: 56px;
+    width: 56px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 200px;
+    position: fixed;
+    z-index: 1000;
+    top: var(--spacing-default);
+    right: var(--spacing-default);
+    transition: all var(--transition-smooth);
+    transform-origin: center;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-icon {
+    cursor: pointer;
+}
+
+#slidePanel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: #161616;
+    color: var(--black);
+    padding: 20px;
+    z-index: 9999;
+    box-sizing: border-box;
+    transition: right 0.5s ease;
+    overflow-y: auto;
+    padding: 40px;
+}
+
+#slidePanel.active {
+    right: 0;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 45px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.slidePanel-list {
+    margin-top: 90px;
+    list-style: none;
+}
+
+.nav-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    cursor: pointer;
+}
+
+.nav-list-item img {
+    height: 25px;
+    width: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.slidePanel-list li {
+    font-size: 39px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.contact-info ul {
+    margin-top: 80px;
+    list-style: none;
+}
+
+.contact-info li {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+/* hire me button */
+.hire-me-button {
+    width: 160px;
+    height: 36px;
+    border: 2px solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 18px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    margin-top: 4px;
+    height: 20px;
+    width: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hire-me-button:hover {
+    background-color: var(--white);
+    color: #000;
+}
+
+.hire-me-button:hover .arrow-icon {
+    transform: rotate(45deg);
+    filter: invert(1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    margin-top: 40px;
+}
+
+/* nav-links */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.nav-list li {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .nav-bar {
+        padding: 0 32px 0 10px;
+    }
+
+    .nav-right {
+        gap: 25px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    #slidePanel {
+        width: 100%;
+    }
+}
