@@ -116,3 +116,10 @@
     cursor: pointer;
     transition: all 0.2s;
 }
+
+
+@media (max-width: 720px) {
+    .title {
+        font-size: 20px;
+    }
+}
