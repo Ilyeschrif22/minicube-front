@@ -368,36 +368,6 @@
     }
 
     .fifth-categorie {
-        width: 160px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card-container {
-        gap: 25px;
-    }
-
-    .card {
-        height: 450px;
-    }
-
-    .card-thumbnail {
-        height: 180px;
-    }
-
-    .card-content {
-        padding: 20px 15px;
-    }
-
-    .card-title {
-        font-size: 18px;
-    }
-
-    .card-description {
-        font-size: 13px;
-    }
-
-    .projects-search-bar {
-        max-width: 100%;
+        width: 137px;
     }
 }
