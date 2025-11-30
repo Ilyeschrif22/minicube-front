@@ -32,7 +32,9 @@ const SlidePanel = () => {
         <ul className="slidePanel-list">
           <div className="nav-list-item">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={closePanel}>
+                Home
+              </Link>
             </li>
             <img
               src="/icons/add-icon.svg"
@@ -43,7 +45,9 @@ const SlidePanel = () => {
           </div>
           <div className="nav-list-item">
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link to="/projects" onClick={closePanel}>
+                Projects
+              </Link>
             </li>
             <img
               src="/icons/add-icon.svg"

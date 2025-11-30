@@ -7,7 +7,6 @@ import Hero from './components/hero/hero';
 import Projects from './components/projects/projects';
 import Swiper from './components/swiper/swiper';
 
-import CreateProject from './pages/createProject/createproject';
 
 function App() {
   return (
@@ -34,7 +33,6 @@ function App() {
           }
         />
 
-        <Route path="/project/create" element={<CreateProject />} />
 
       </Routes>
     </Router>
