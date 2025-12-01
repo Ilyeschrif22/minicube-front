@@ -16,7 +16,7 @@ const Aboutme = () => {
 
             <p className="about-description">
               With a curious and problem-solving mindset, I create intuitive interfaces and robust backend systems,
-              writing elegant, maintainable code built to last.<br /> I continuously learn, experiment, and document my journey
+              writing elegant, maintainable code built to last.<br /><br /> I continuously learn, experiment, and document my journey
               through challenging projects that deliver real value.
             </p>
 
