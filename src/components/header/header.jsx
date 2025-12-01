@@ -1,13 +1,11 @@
 import Navbar from "../navbar/navbar";
 import "./styles.css";
 
-const Header = () => {
+const Header = ({ onAboutClick }) => {
   return (
-    <>
-      <header>
-        <Navbar></Navbar>
-      </header>
-    </>
+    <header>
+      <Navbar onAboutClick={onAboutClick} />
+    </header>
   );
 };
 

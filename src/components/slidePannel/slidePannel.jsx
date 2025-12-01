@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./styles.css";
 
-const SlidePanel = () => {
+const SlidePanel = ({ onAboutClick }) => {
   const [panelActive, setPanelActive] = useState(false);
 
   const togglePanel = () => {
@@ -38,8 +38,7 @@ const SlidePanel = () => {
             </li>
             <img
               src="/icons/add-icon.svg"
-              className="nav-
-                  list-icon"
+              className="nav-list-icon"
               alt="icon"
             />
           </div>
@@ -56,7 +55,25 @@ const SlidePanel = () => {
             />
           </div>
           <div className="nav-list-item">
-            <li>About</li>
+            <li>
+              <button
+                onClick={() => {
+                  onAboutClick();
+                  closePanel();
+                }}
+                className="nav-button-link"
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "inherit",
+                  font: "inherit",
+                  padding: 0,
+                }}
+              >
+                About
+              </button>
+            </li>
             <img
               src="/icons/add-icon.svg"
               className="nav-list-icon"

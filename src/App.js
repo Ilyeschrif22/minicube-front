@@ -1,30 +1,38 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/header/header";
+import Hero from "./components/hero/hero";
+import Projects from "./components/projects/projects";
+import Swiper from "./components/swiper/swiper";
+import Aboutme from "./components/about-me/aboutme";
+import ScrollReveal from "./ScrollReveal";
 import './App.css';
 
-import Header from './components/header/header';
-import Hero from './components/hero/hero';
-import Projects from './components/projects/projects';
-import Swiper from './components/swiper/swiper';
-import Aboutme from './components/about-me/aboutme';
-import ScrollReveal from './ScrollReveal';
-
 function App() {
+  const aboutRef = useRef(null);
+
+  const scrollToAbout = () => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Router>
-      <Header />
+      <Header onAboutClick={scrollToAbout} />
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <ScrollReveal delay={300}>
+              <ScrollReveal delay={320}>
                 <Hero />
-
                 <Swiper />
               </ScrollReveal>
 
-              <Aboutme />
+              <div ref={aboutRef}>
+                <Aboutme />
+              </div>
 
               <ScrollReveal delay={300}>
                 <Projects />
@@ -32,12 +40,11 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/projects"
           element={
             <>
-              <ScrollReveal delay={200}>
+              <ScrollReveal delay={400}>
                 <Projects />
               </ScrollReveal>
             </>
