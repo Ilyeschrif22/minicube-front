@@ -1,0 +1,89 @@
+.about-me-section {
+    height: 80vh;
+    width: 100%;
+    background-color: var(--black);
+    padding: 40px 120px 80px 120px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.about-me-image {
+    width: 250px;
+    height: 550px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.text-content {
+    flex: 1;
+    color: var(--white);
+}
+
+.aboutme-title {
+    font-size: 54px;
+    font-weight: 400;
+    margin: 20px 0 20px 0;
+}
+
+.intro-text,
+.about-description {
+    font-size: 29px;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+
+.skills-tags {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 17px;
+    color: var(--primary-color);
+}
+
+.tag {
+    background-color: var(--primary-color);
+    color: var(--black);
+    padding: 6px 12px;
+    user-select: none;
+}
+
+@media (max-width: 720px) {
+    .about-me-section {
+        padding: 20px 20px;
+        height: 120vh;
+    }
+
+    .about-me-image {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .intro-text {
+        font-size: 25px;
+    }
+
+    .about-description {
+        font-size: 25px;
+    }
+
+    .intro-text,
+    .about-description {
+        max-width: 550px;
+        word-wrap: break-word;
+        hyphens: auto;
+        white-space: normal;
+    }
+
+    .skills-tags {
+        font-size: 18px;
+    }
+}

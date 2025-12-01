@@ -4,25 +4,49 @@ import CreateProjectModal from "../createprojectmodal/CreateProjectModal";
 import "./styles.css";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const categories = [
+  { key: "Web Development", label: "Web Developpement", width: "280px" },
+  {
+    key: "Mobile Development",
+    label: "Mobile Developpement",
+    width: "280px",
+  },
+  { key: "Cloud & Deployment", label: "Cloud & Deployment", width: "280px" },
+  { key: "Design", label: "Design", width: "180px" },
+  { key: "AI", label: "AI", width: "90px" },
+];
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Web Development");
 
-  const fetchProjects = () => {
-    fetch(`${backendUrl}/api/projects`)
+  const fetchProjects = (category) => {
+    let url = `${backendUrl}/api/projects`;
+
+    if (category) {
+      url = `${backendUrl}/api/projects/category?category=${encodeURIComponent(
+        selectedCategory
+      )}`;
+    }
+
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error("Error fetching projects:", err));
   };
 
   useEffect(() => {
-    fetchProjects();
-  }, []);
+    fetchProjects(selectedCategory);
+  }, [selectedCategory]);
 
   const handleCreateProject = (newProject) => {
     setProjects((prev) => [newProject, ...prev]);
     setIsModalOpen(false);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
   };
 
   return (
@@ -51,13 +75,30 @@ const Projects = () => {
       </div>
 
       <div className="projects-categories">
-        <div className="first-categorie">Web Developpement</div>
-        <div className="second-categorie">Mobile Developpement</div>
-        <div className="third-categorie">Cloud & Deployement</div>
+        {categories.slice(0, 3).map(({ key, label, width }) => (
+          <div
+            key={key}
+            className={`category-item ${selectedCategory === key ? "active" : ""
+              }`}
+            style={{ width }}
+            onClick={() => handleCategoryClick(key)}
+          >
+            {label}
+          </div>
+        ))}
 
         <div className="both-categories">
-          <div className="fourth-categorie">Design</div>
-          <div className="fifth-categorie">AI</div>
+          {categories.slice(3).map(({ key, label, width }) => (
+            <div
+              key={key}
+              className={`category-item ${selectedCategory === key ? "active" : ""
+                }`}
+              style={{ width }}
+              onClick={() => handleCategoryClick(key)}
+            >
+              {label}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -72,8 +113,8 @@ const Projects = () => {
                     project.thumbnail && project.thumbnail.startsWith("data:")
                       ? project.thumbnail
                       : project.thumbnail
-                      ? `${backendUrl}${project.thumbnail}`
-                      : "/images/default.webp"
+                        ? `${backendUrl}${project.thumbnail}`
+                        : "/images/default.webp"
                   }
                   alt="project thumbnail"
                 />

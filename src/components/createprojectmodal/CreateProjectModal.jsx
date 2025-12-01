@@ -115,7 +115,7 @@ const CreateProjectModal = ({ isOpen, onClose, onCreate }) => {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Enter project description"
+              placeholder="Enter project description ..."
               rows="4"
               className="textarea"
               required

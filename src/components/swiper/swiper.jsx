@@ -4,16 +4,16 @@ const Swiper = () => {
   return (
     <div className="services-section">
       <ul className="services-list">
-        <li>Développement web</li>
-        <li>Design graphique</li>
-        <li>Hébergement Web</li>
-        <li>Solutions Digital</li>
+        <li>Web Development</li>
+        <li>Graphic Design</li>
+        <li>Web Hosting</li>
+        <li>Digital Solutions</li>
 
         {/* Duplicate for seamless loop */}
-        <li>Développement web</li>
-        <li>Design graphique</li>
-        <li>Hébergement Web</li>
-        <li>Solutions Digital</li>
+        <li>Web Development</li>
+        <li>Graphic Design</li>
+        <li>Web Hosting</li>
+        <li>Digital Solutions</li>
       </ul>
     </div>
   );

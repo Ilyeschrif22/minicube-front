@@ -17,6 +17,11 @@
   font-family: "Funnel Display", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 
 body {
   min-height: 100vh;
