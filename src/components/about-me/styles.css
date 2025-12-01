@@ -57,7 +57,7 @@
 @media (max-width: 720px) {
     .about-me-section {
         padding: 20px 20px;
-        height: 120vh;
+        height: 165vh;
     }
 
     .about-me-image {
@@ -68,16 +68,16 @@
     }
 
     .intro-text {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     .about-description {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     .intro-text,
     .about-description {
-        max-width: 550px;
+        max-width: 350px;
         word-wrap: break-word;
         hyphens: auto;
         white-space: normal;

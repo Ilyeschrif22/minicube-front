@@ -5,15 +5,15 @@ import "./styles.css";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const categories = [
-  { key: "Web Development", label: "Web Developpement", width: "280px" },
+  { key: "Web Development", label: "Web Developpement", width: "320px" },
   {
     key: "Mobile Development",
     label: "Mobile Developpement",
-    width: "280px",
+    width: "320px",
   },
-  { key: "Cloud & Deployment", label: "Cloud & Deployment", width: "280px" },
+  { key: "Cloud & Deployment", label: "Cloud & Deployment", width: "320px" },
   { key: "Design", label: "Design", width: "180px" },
-  { key: "AI", label: "AI", width: "90px" },
+  { key: "AI", label: "AI", width: "130px" },
 ];
 
 const Projects = () => {
