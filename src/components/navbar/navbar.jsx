@@ -38,7 +38,25 @@ const NavBar = ({ onAboutClick, onContactClick }) => {
             <Link to="/projects">Projects</Link>
           </li>
           <li>Blog</li>
-          <li>Contact</li>
+          <li>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                onContactClick();
+              }}
+              className="nav-button-link"
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                color: "inherit",
+                font: "inherit",
+                padding: 0,
+              }}
+            >
+              Contact
+            </button>
+          </li>
         </ul>
       </div>
 

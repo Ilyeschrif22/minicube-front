@@ -15,7 +15,7 @@ function App() {
 
   const scrollToAbout = () => {
     if (aboutRef.current) {
-      const yOffset = -100;
+      const yOffset = -120;
       const y = aboutRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -23,7 +23,7 @@ function App() {
 
   const scrollToContact = () => {
     if (contactRef.current) {
-      const yOffset = -100;
+      const yOffset = -80;
       const y = contactRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -47,7 +47,7 @@ function App() {
                 <Aboutme />
               </div>
 
-              <ScrollReveal delay={300}>
+              <ScrollReveal delay={200}>
                 <Projects />
               </ScrollReveal>
 
