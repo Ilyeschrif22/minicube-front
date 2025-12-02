@@ -5,6 +5,7 @@ import Hero from "./components/hero/hero";
 import Projects from "./components/projects/projects";
 import Swiper from "./components/swiper/swiper";
 import Aboutme from "./components/about-me/aboutme";
+import Contact from "./components/contact/Contact";
 import ScrollReveal from "./ScrollReveal";
 import './App.css';
 
@@ -37,6 +38,14 @@ function App() {
               <ScrollReveal delay={300}>
                 <Projects />
               </ScrollReveal>
+
+              <ScrollReveal delay={300}>
+                <Swiper />
+
+                <Contact />
+              </ScrollReveal>
+
+
             </>
           }
         />

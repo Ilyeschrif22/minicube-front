@@ -33,11 +33,9 @@
 }
 
 .projects-section {
-    height: 100vh;
     width: 100%;
     background-color: var(--black);
     padding: 60px 120px;
-    margin-bottom: 200px;
 }
 
 .projects-search-bar {
@@ -320,7 +318,7 @@
 
     .card {
         max-width: 100%;
-        height: 540px;
+        height: 560px;
     }
 
     .card-title {
