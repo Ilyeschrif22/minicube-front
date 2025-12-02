@@ -44,7 +44,7 @@ function App() {
           path="/projects"
           element={
             <>
-              <ScrollReveal delay={400}>
+              <ScrollReveal delay={300}>
                 <Projects />
               </ScrollReveal>
             </>

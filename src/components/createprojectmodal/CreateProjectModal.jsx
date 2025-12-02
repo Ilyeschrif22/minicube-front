@@ -55,7 +55,7 @@ const CreateProjectModal = ({ isOpen, onClose, onCreate }) => {
         const errorData = await response.json();
         alert(
           "Failed to create project: " +
-            (errorData.message || response.statusText)
+          (errorData.message || response.statusText)
         );
         return;
       }
