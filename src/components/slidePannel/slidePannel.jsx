@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./styles.css";
 
-const SlidePanel = ({ onAboutClick }) => {
+const SlidePanel = ({ onAboutClick, onContactClick }) => {
   const [panelActive, setPanelActive] = useState(false);
 
   const togglePanel = () => {
@@ -36,11 +36,7 @@ const SlidePanel = ({ onAboutClick }) => {
                 Home
               </Link>
             </li>
-            <img
-              src="/icons/add-icon.svg"
-              className="nav-list-icon"
-              alt="icon"
-            />
+            <img src="/icons/add-icon.svg" className="nav-list-icon" alt="icon" />
           </div>
           <div className="nav-list-item">
             <li>
@@ -48,11 +44,7 @@ const SlidePanel = ({ onAboutClick }) => {
                 Projects
               </Link>
             </li>
-            <img
-              src="/icons/add-icon.svg"
-              className="nav-list-icon"
-              alt="icon"
-            />
+            <img src="/icons/add-icon.svg" className="nav-list-icon" alt="icon" />
           </div>
           <div className="nav-list-item">
             <li>
@@ -74,19 +66,29 @@ const SlidePanel = ({ onAboutClick }) => {
                 About
               </button>
             </li>
-            <img
-              src="/icons/add-icon.svg"
-              className="nav-list-icon"
-              alt="icon"
-            />
+            <img src="/icons/add-icon.svg" className="nav-list-icon" alt="icon" />
           </div>
           <div className="nav-list-item">
-            <li>Contact</li>
-            <img
-              src="/icons/add-icon.svg"
-              className="nav-list-icon"
-              alt="icon"
-            />
+            <li>
+              <button
+                onClick={() => {
+                  onContactClick();
+                  closePanel();
+                }}
+                className="nav-button-link"
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "inherit",
+                  font: "inherit",
+                  padding: 0,
+                }}
+              >
+                Contact
+              </button>
+            </li>
+            <img src="/icons/add-icon.svg" className="nav-list-icon" alt="icon" />
           </div>
         </ul>
 

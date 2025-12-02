@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./styles.css";
 
-const NavBar = ({ onAboutClick }) => {
+const NavBar = ({ onAboutClick, onContactClick }) => {
   return (
     <div className="nav-bar">
       <div className="logo-container">
@@ -52,7 +52,7 @@ const NavBar = ({ onAboutClick }) => {
           />
         </div>
 
-        <SlidePannel onAboutClick={onAboutClick} />
+        <SlidePannel onAboutClick={onAboutClick} onContactClick={onContactClick} />
       </div>
     </div>
   );

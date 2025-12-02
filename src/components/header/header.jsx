@@ -1,10 +1,10 @@
 import Navbar from "../navbar/navbar";
 import "./styles.css";
 
-const Header = ({ onAboutClick }) => {
+const Header = ({ onAboutClick, onContactClick }) => {
   return (
     <header>
-      <Navbar onAboutClick={onAboutClick} />
+      <Navbar onAboutClick={onAboutClick} onContactClick={onContactClick} />
     </header>
   );
 };

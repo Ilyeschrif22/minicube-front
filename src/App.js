@@ -11,16 +11,28 @@ import './App.css';
 
 function App() {
   const aboutRef = useRef(null);
+  const contactRef = useRef(null);
 
   const scrollToAbout = () => {
     if (aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -100;
+      const y = aboutRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      const yOffset = -100;
+      const y = contactRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
+
   return (
     <Router>
-      <Header onAboutClick={scrollToAbout} />
+      <Header onAboutClick={scrollToAbout} onContactClick={scrollToContact} />
       <Routes>
         <Route
           path="/"
@@ -41,8 +53,9 @@ function App() {
 
               <ScrollReveal delay={300}>
                 <Swiper />
-
-                <Contact />
+                <div ref={contactRef}>
+                  <Contact />
+                </div>
               </ScrollReveal>
 
 
