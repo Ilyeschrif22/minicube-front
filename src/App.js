@@ -38,25 +38,25 @@ function App() {
           path="/"
           element={
             <>
-              <ScrollReveal delay={320}>
-                <Hero />
-                <Swiper />
-              </ScrollReveal>
+              {/* <ScrollReveal delay={320}> */}
+              <Hero />
+              <Swiper />
+              {/* </ScrollReveal> */}
 
               <div ref={aboutRef}>
                 <Aboutme />
               </div>
 
-              <ScrollReveal delay={200}>
-                <Projects />
-              </ScrollReveal>
+              {/* <ScrollReveal delay={200}> */}
+              <Projects />
+              {/* </ScrollReveal> */}
 
-              <ScrollReveal delay={300}>
-                <Swiper />
-                <div ref={contactRef}>
-                  <Contact />
-                </div>
-              </ScrollReveal>
+              {/* <ScrollReveal delay={300}> */}
+              <Swiper />
+              <div ref={contactRef}>
+                <Contact />
+              </div>
+              {/* </ScrollReveal> */}
 
 
             </>
