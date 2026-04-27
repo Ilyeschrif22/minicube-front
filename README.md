@@ -3,7 +3,12 @@
 Personal portfolio website built with React.  
 It showcases profile information, selected projects, and a contact section in a clean single-page experience.
 
+<img width="1830" height="882" alt="image" src="https://github.com/user-attachments/assets/212060d6-65f9-48c3-85ec-0d8cf8611f0c" />
+
+
 ## Overview
+
+
 
 This project is focused on:
 
