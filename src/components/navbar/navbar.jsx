@@ -13,7 +13,7 @@ const NavBar = ({ onAboutClick, onContactClick }) => {
       <div className="nav-links">
         <ul className="nav-list">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="nav-link btn-swipe btn-swipe-white">Home</Link>
           </li>
           <li>
             <button
@@ -21,21 +21,13 @@ const NavBar = ({ onAboutClick, onContactClick }) => {
                 e.preventDefault();
                 onAboutClick();
               }}
-              className="nav-button-link"
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                color: "inherit",
-                font: "inherit",
-                padding: 0,
-              }}
+              className="nav-button-link btn-swipe btn-swipe-white"
             >
               About
             </button>
           </li>
           <li>
-            <Link to="/projects">Projects</Link>
+            <Link to="/projects" className="nav-link btn-swipe btn-swipe-white">Projects</Link>
           </li>
           <li>Blog</li>
           <li>
@@ -44,15 +36,7 @@ const NavBar = ({ onAboutClick, onContactClick }) => {
                 e.preventDefault();
                 onContactClick();
               }}
-              className="nav-button-link"
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                color: "inherit",
-                font: "inherit",
-                padding: 0,
-              }}
+              className="nav-button-link btn-swipe btn-swipe-white"
             >
               Contact
             </button>
@@ -61,7 +45,7 @@ const NavBar = ({ onAboutClick, onContactClick }) => {
       </div>
 
       <div className="nav-right">
-        <div className="hire-me-button">
+        <div className="hire-me-button btn-swipe btn-swipe-white">
           Hire me
           <img
             src="/icons/arrow-outward-icon.svg"

@@ -69,11 +69,11 @@ const Contact = () => {
                 />
 
                 <div className='contact-buttons-container'>
-                    <div className='contact-cancel-button'>
+                    <div className='contact-cancel-button btn-swipe btn-swipe-dark'>
                         Cancel
                     </div>
 
-                    <div className='contact-send-button'>
+                    <div className='contact-send-button btn-swipe btn-swipe-dark'>
                         Send Message
                     </div>
                 </div>

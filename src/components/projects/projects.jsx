@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { ReactComponent as AddIcon } from "../../assets/add-icon.svg";
-import CreateProjectModal from "../createprojectmodal/CreateProjectModal";
+import React, { useMemo, useState } from "react";
 import "./styles.css";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const categories = [
-  { key: "Web Development", label: "Web Developpement", width: "320px" },
+  { key: "Web Development", label: "Web Development", width: "320px" },
   {
     key: "Mobile Development",
-    label: "Mobile Developpement",
+    label: "Mobile Development",
     width: "320px",
   },
   { key: "Cloud & Deployment", label: "Cloud & Deployment", width: "320px" },
@@ -16,58 +13,86 @@ const categories = [
   { key: "AI", label: "AI", width: "130px" },
 ];
 
+const staticProjects = [
+  {
+    _id: "1",
+    name: "Distributed Microservices Architecture",
+    description:
+      "Microservices system with API gateway routing, Eureka service discovery, centralized config server, and OAuth2 identity via Keycloak.",
+    category: "Web Development",
+    status: "Completed",
+    outcome: "Improved service scalability and secure authentication across all modules.",
+    links: {
+      repo: "https://github.com/ilyeschrif/microservices-architecture",
+      demo: "https://example.com/microservices-demo",
+    },
+    tags: ["Spring Cloud", "Eureka", "Keycloak", "API Gateway", "Config Server"],
+    thumbnail: "/images/microservices.png",
+  },
+  {
+    _id: "2",
+    name: "DevOps CI/CD Pipeline",
+    description:
+      "MERN stack pipeline with Jenkins builds, Docker containerization, Kubernetes orchestration, and SonarQube code quality gates.",
+    category: "Cloud & Deployment",
+    status: "Completed",
+    outcome: "Cut deployment time significantly with automated CI/CD and quality checks.",
+    links: {
+      repo: "https://github.com/ilyeschrif/devops-cicd-pipeline",
+      demo: "https://example.com/devops-pipeline",
+    },
+    tags: ["Docker", "Jenkins", "Kubernetes", "SonarQube", "MERN"],
+    thumbnail: "/images/devops-pipeline.webp",
+  },
+  {
+    _id: "3",
+    name: "OCR REST API",
+    description:
+      "Extracts text from images via a lightweight REST API built with FastAPI and Tesseract.",
+    category: "AI",
+    status: "In Progress",
+    outcome: "Built a fast OCR endpoint with consistent extraction accuracy for scanned documents.",
+    links: {
+      repo: "https://github.com/ilyeschrif/ocr-rest-api",
+    },
+    tags: ["Python", "FastAPI", "Tesseract", "OCR"],
+    thumbnail: "/images/ocr-api.png",
+  },
+];
+
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Web Development");
+  const [searchValue, setSearchValue] = useState("");
 
-  const fetchProjects = (category) => {
-    let url = `${backendUrl}/api/projects`;
+  const filteredProjects = useMemo(() => {
+    return staticProjects.filter((project) => {
+      const matchesCategory = project.category === selectedCategory;
+      const search = searchValue.trim().toLowerCase();
 
-    if (category) {
-      url = `${backendUrl}/api/projects/category?category=${encodeURIComponent(
-        selectedCategory
-      )}`;
-    }
+      if (!search) return matchesCategory;
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProjects(data))
-      .catch((err) => console.error("Error fetching projects:", err));
-  };
-
-  useEffect(() => {
-    fetchProjects(selectedCategory);
-  }, [selectedCategory]);
-
-  const handleCreateProject = (newProject) => {
-    setProjects((prev) => [newProject, ...prev]);
-    setIsModalOpen(false);
-  };
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-  };
+      return (
+        matchesCategory &&
+        (project.name.toLowerCase().includes(search) ||
+          project.description.toLowerCase().includes(search) ||
+          project.outcome.toLowerCase().includes(search) ||
+          project.tags.some((tag) => tag.toLowerCase().includes(search)))
+      );
+    });
+  }, [searchValue, selectedCategory]);
 
   return (
     <div className="projects-section">
       <div className="projects-header">
         <h1 className="section-title">Projects</h1>
-
-        <div
-          className="create-button"
-          style={{ cursor: "pointer" }}
-          onClick={() => setIsModalOpen(true)}
-        >
-          <span className="text">Create project</span>{" "}
-          <AddIcon className="create-project-icon" />
-        </div>
       </div>
 
       <div className="projects-search-bar">
         <input
           className="projects-search-bar-input"
           placeholder="Search projects ...."
+          value={searchValue}
+          onChange={(event) => setSearchValue(event.target.value)}
         />
         <div className="search-bar-search-icon">
           <img src="./icons/search-icon.svg" alt="search icon" />
@@ -78,10 +103,9 @@ const Projects = () => {
         {categories.slice(0, 3).map(({ key, label, width }) => (
           <div
             key={key}
-            className={`category-item ${selectedCategory === key ? "active" : ""
-              }`}
+            className={`category-item btn-swipe btn-swipe-primary ${selectedCategory === key ? "active" : ""}`}
             style={{ width }}
-            onClick={() => handleCategoryClick(key)}
+            onClick={() => setSelectedCategory(key)}
           >
             {label}
           </div>
@@ -91,10 +115,9 @@ const Projects = () => {
           {categories.slice(3).map(({ key, label, width }) => (
             <div
               key={key}
-              className={`category-item ${selectedCategory === key ? "active" : ""
-                }`}
+              className={`category-item btn-swipe btn-swipe-primary ${selectedCategory === key ? "active" : ""}`}
               style={{ width }}
-              onClick={() => handleCategoryClick(key)}
+              onClick={() => setSelectedCategory(key)}
             >
               {label}
             </div>
@@ -103,36 +126,45 @@ const Projects = () => {
       </div>
 
       <div className="card-container">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <div className="card-column" key={project._id}>
             <div className="card">
               <div className="card-thumbnail">
-                <img
-                  className="card-image"
-                  src={
-                    project.thumbnail && project.thumbnail.startsWith("data:")
-                      ? project.thumbnail
-                      : project.thumbnail
-                        ? `${backendUrl}${project.thumbnail}`
-                        : "/images/default.webp"
-                  }
-                  alt="project thumbnail"
-                />
+                <img className="card-image" src={project.thumbnail} alt={project.name} />
               </div>
 
               <div className="card-content">
-                <div className="card-category">
-                  {project.category || "Other"}
+                <div className="card-category">{project.category}</div>
+                <h1 className="card-title">{project.name}</h1>
+                <p className="card-description">{project.description}</p>
+                <div className="card-details">
+                  <p>
+                    <strong>Status:</strong> {project.status}
+                  </p>
+                  <p>
+                    <strong>Outcome:</strong> {project.outcome}
+                  </p>
                 </div>
 
-                <h1 className="card-title">{project.name}</h1>
-
-                <p className="card-description">{project.description}</p>
+                {project.links && (
+                  <div className="card-links">
+                    {project.links.repo && (
+                      <a href={project.links.repo} target="_blank" rel="noreferrer">
+                        Repository
+                      </a>
+                    )}
+                    {project.links.demo && (
+                      <a href={project.links.demo} target="_blank" rel="noreferrer">
+                        Live Demo
+                      </a>
+                    )}
+                  </div>
+                )}
 
                 <div className="card-technologies">
                   <ul>
-                    {project.tags?.map((tag, index) => (
-                      <li key={index}>{tag}</li>
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
                     ))}
                   </ul>
                 </div>
@@ -140,13 +172,10 @@ const Projects = () => {
             </div>
           </div>
         ))}
+        {filteredProjects.length === 0 && (
+          <p className="empty-projects">No projects found for this category.</p>
+        )}
       </div>
-
-      <CreateProjectModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onCreate={handleCreateProject}
-      />
     </div>
   );
 };

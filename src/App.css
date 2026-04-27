@@ -27,3 +27,33 @@ body {
   min-height: 100vh;
   background-color: var(--black);
 }
+
+.btn-swipe {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(var(--swipe-bg, var(--primary-color)), var(--swipe-bg, var(--primary-color)));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  transition: background-size 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.btn-swipe:hover {
+  background-size: 100% 100%;
+  color: var(--swipe-text, var(--black));
+}
+
+.btn-swipe-primary {
+  --swipe-bg: var(--primary-color);
+  --swipe-text: var(--black);
+}
+
+.btn-swipe-white {
+  --swipe-bg: var(--white);
+  --swipe-text: var(--black);
+}
+
+.btn-swipe-dark {
+  --swipe-bg: #161616;
+  --swipe-text: var(--white);
+}

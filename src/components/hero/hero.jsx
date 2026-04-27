@@ -23,8 +23,8 @@ const Hero = () => {
         </div>
 
         <div className="contact-buttons">
-          <div className="cv-button">Check cv</div>
-          <div className="contact-button">Contact me</div>
+          <div className="cv-button btn-swipe btn-swipe-white">Check cv</div>
+          <div className="contact-button btn-swipe btn-swipe-white">Contact me</div>
         </div>
       </div>
     </div>

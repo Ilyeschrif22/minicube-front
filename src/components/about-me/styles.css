@@ -1,89 +1,126 @@
 .about-me-section {
-    height: 100vh;
     width: 100%;
     background-color: var(--black);
-    padding: 40px 120px 80px 120px;
+    padding: 72px 120px 84px;
     box-sizing: border-box;
 }
 
-.container {
-    display: flex;
-    gap: 40px;
+.aboutme-shell {
     max-width: 1200px;
-    flex-wrap: wrap;
-}
-
-.about-me-image {
-    width: 250px;
-    height: 550px;
-    object-fit: cover;
-    flex-shrink: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 56px;
+    padding: 44px 48px;
+    border: 1px solid rgba(205, 255, 0, 0.2);
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.03), rgba(205, 255, 0, 0.08));
 }
 
 .text-content {
-    flex: 1;
     color: var(--white);
 }
 
-.aboutme-title {
-    font-size: 54px;
-    font-weight: 400;
-    margin: 20px 0 20px 0;
+.aboutme-kicker {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
 }
 
-.intro-text,
+.aboutme-title {
+    font-size: 56px;
+    font-weight: 500;
+    margin: 10px 0 26px;
+    line-height: 1.08;
+}
+
+.intro-text {
+    font-size: 28px;
+    line-height: 1.36;
+    margin: 0 0 22px;
+    max-width: 760px;
+}
+
 .about-description {
-    font-size: 29px;
-    margin-top: 20px;
-    line-height: 1.4;
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 760px;
+}
+
+.aboutme-sidebar {
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 28px;
+}
+
+.skills-title {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 18px;
 }
 
 .skills-tags {
-    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
-    font-size: 14px;
-    color: var(--primary-color);
+    gap: 10px;
 }
 
 .tag {
-    background-color: var(--primary-color);
-    color: var(--black);
-    padding: 6px 12px;
+    background-color: rgba(205, 255, 0, 0.15);
+    border: 1px solid rgba(205, 255, 0, 0.45);
+    color: var(--white);
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1;
     user-select: none;
+}
+
+@media (max-width: 1100px) {
+    .about-me-section {
+        padding: 56px 32px 64px;
+    }
+
+    .aboutme-shell {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 34px 28px;
+    }
+
+    .aboutme-sidebar {
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-left: 0;
+        padding-top: 24px;
+    }
 }
 
 @media (max-width: 720px) {
     .about-me-section {
-        padding: 20px 20px;
-        height: 162vh;
+        padding: 24px 20px 40px;
     }
 
-    .about-me-image {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
-        margin-bottom: 30px;
+    .aboutme-shell {
+        padding: 26px 18px;
+        gap: 26px;
+    }
+
+    .aboutme-title {
+        font-size: 42px;
+        margin-bottom: 20px;
     }
 
     .intro-text {
-        font-size: 26px;
+        font-size: 23px;
     }
 
     .about-description {
-        font-size: 26px;
+        font-size: 20px;
     }
 
-    .intro-text,
-    .about-description {
-        max-width: 350px;
-        word-wrap: break-word;
-        hyphens: auto;
-        white-space: normal;
-    }
-
-    .skills-tags {
-        font-size: 18px;
+    .tag {
+        font-size: 16px;
     }
 }
