@@ -1,0 +1,39 @@
+Web Development
+Minicube portfolio
+Building my portfolio app using mern stack and deploying using vercel and render
+
+React
+Express
+Mongo atlas
+Node
+vercel
+render
+project thumbnail
+Web Development
+Nest js Rest Apis
+Building a simple crud application with nest js and mongodb
+
+Nest js
+Typescript
+Node js
+mongodb
+project thumbnail
+Web Development
+Events Management Application – Angular & Spring Boot
+A full-stack events management platform designed to create, update, delete, and display events in a
+
+Angular
+TypeScript
+Spring Boot
+REST API
+JPA
+MySQL
+
+Cloud & Deployment
+CI/CD Automation Pipeline with Jenkins & GitHub Webhooks
+A lightweight CI/CD pipeline built using Jenkins declarative pipelines and integrated with GitHub We
+
+Jenkins
+GitHub
+CI/CD
+Groovy

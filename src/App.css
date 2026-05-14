@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+
+:root {
+  --primary-color: #cdff00;
+  --white: #fff;
+  --black: #000;
+  --dark-gray: #1a1a1a;
+
+  --transition-smooth: 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+  --spacing-default: 40px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Funnel Display", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+
+body {
+  min-height: 100vh;
+  background-color: var(--black);
+}
+
+.btn-swipe {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(var(--swipe-bg, var(--primary-color)), var(--swipe-bg, var(--primary-color)));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0% 100%;
+  transition: background-size 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+.btn-swipe:hover {
+  background-size: 100% 100%;
+  color: var(--swipe-text, var(--black));
+}
+
+.btn-swipe-primary {
+  --swipe-bg: var(--primary-color);
+  --swipe-text: var(--black);
+}
+
+.btn-swipe-white {
+  --swipe-bg: var(--white);
+  --swipe-text: var(--black);
+}
+
+.btn-swipe-dark {
+  --swipe-bg: #161616;
+  --swipe-text: var(--white);
+}
