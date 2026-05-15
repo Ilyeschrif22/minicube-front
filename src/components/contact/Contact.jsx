@@ -12,9 +12,7 @@ const Contact = () => {
     });
 
     const [isLoading, setIsLoading] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState('');
 
-    // Initialize EmailJS
     const initEmailJS = () => {
         if (!window.emailJSInitialized) {
             emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
@@ -33,20 +31,9 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        setSubmitStatus('');
 
         try {
             initEmailJS();
-
-            const emailContent = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Subject: ${formData.subject}
-
-Message:
-${formData.message}
-            `;
 
             await emailjs.send(
                 process.env.REACT_APP_EMAILJS_SERVICE_ID,
@@ -62,7 +49,6 @@ ${formData.message}
                 }
             );
 
-            setSubmitStatus('success');
             setFormData({
                 name: '',
                 email: '',
@@ -73,7 +59,6 @@ ${formData.message}
             alert('Email sent successfully!');
         } catch (error) {
             console.error('Error sending email:', error);
-            setSubmitStatus('error');
             alert('Failed to send email. Please try again.');
         } finally {
             setIsLoading(false);
@@ -88,7 +73,6 @@ ${formData.message}
             subject: '',
             message: ''
         });
-        setSubmitStatus('');
     };
 
     return (
